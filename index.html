@@ -21,6 +21,28 @@
 
 
         <script>
+
+            //Initialize the score:
+
+            let userWins = 0;
+            let computerWins = 0;
+
+            const outputDiv = document.querySelector('.outputDiv');
+            const userScoreSpan = document.getElementById('userScore');
+            const computerScoreSpan = document.getElementById('computerScore');
+
+            //function to print out messages
+
+            function customLog(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.textContent = message;
+                outputDiv.appendChild(messageDiv);
+        }
+            const btnRock = document.querySelector('#rock');
+            const btnPaper = document.querySelector('#paper');
+            const btnScissors = document.querySelector('#scissors');
+            
+
             function getComputerChoice() {
                 let randomNumber= Math.floor(Math.random()*3 + 1);
                 let computerChoice;
@@ -35,27 +57,11 @@
                 }
             }
 
-            let userWins = 0;
-            let computerWins = 0;
+            //Get user's choice, and have the game played
 
-            const outputDiv = document.querySelector('.outputDiv');
-            const userScoreSpan = document.getElementById('userScore');
-            const computerScoreSpan = document.getElementById('computerScore');
-
-            function customLog(message) {
-                const messageDiv = document.createElement('div');
-                messageDiv.textContent = message;
-                outputDiv.appendChild(messageDiv);
-        }
-            const btnRock = document.querySelector('#rock');
-            const btnPaper = document.querySelector('#paper');
-            const btnScissors = document.querySelector('#scissors');
-            
-            /*console.log = customLog;*/
 
             btnRock.onclick = () => {
                 let playerSelection= ('rock');
-                //customLog('rock');
                 const computerSelection = getComputerChoice();
                 customLog(playRound(playerSelection, computerSelection));
                 console.log(userWins)
@@ -63,13 +69,11 @@
 
             btnPaper.onclick = () => {
                 let playerSelection = ('paper');
-                //customLog('paper');
                 const computerSelection = getComputerChoice();
                 customLog(playRound(playerSelection, computerSelection));
             };
             btnScissors.onclick = () => {
                 let playerSelection = ('scissors');
-                //customLog('scissors');
                 const computerSelection = getComputerChoice();
                 customLog(playRound(playerSelection, computerSelection));
             };
@@ -124,12 +128,6 @@
             computerScoreSpan.textContent = computerWins;
         }
 
-            
-
-
-            /*const playerSelection = prompt('Rock, paper or scissors? ');*/
-            /*const computerSelection = getComputerChoice();
-            playRound(playerSelection, computerSelection);*/
         </script>
     </body>
 </html>
